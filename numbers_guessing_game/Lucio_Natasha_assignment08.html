@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<!-- Author: Natasha Lucio -->
+<!-- Course: CSCI 3300-04 -->
+<!-- Program Date: 4-12-19 -->
+<!-- Description: Assignment 8 -->
+
+<html>
+	<head>
+		<title>Guessing Game</title>
+		<script type="text/javascript">
+function guesslt()
+{	var given = Math.floor((Math.random()*10) +1);
+	var guess = 0;
+	var lowHint = "Too Low";
+	var highHint = "Too High";
+	var numGuess = 0;
+	var count = 1;
+	numGuess = parseInt(prompt("How many guesses do you want?"));
+		guess = parseInt(prompt("Enter a guess:"));
+		while(guess !=given && count < numGuess)
+		{	if(guess > given)
+			{	
+			alert(highHint);
+			guess = parseInt(prompt("Enter a guess: "));
+			}
+			if(guess < given)
+			{	
+			alert(lowHint);
+			guess = parseInt(prompt("Enter a guess: "));
+			}
+			count++;
+		}
+		if(count >= numGuess)
+		{	
+		document.getElementById("guessResult").innerHTML=("<h3> Sorry, you used up all your guesses. The secret number was: " + given + "</h3>");
+		}
+		if (guess == given)
+		{
+		document.getElementById("guessResult").innerHTML=("<h3> Congratulations!! You guessed the secret number: " + given + "</h3>");
+		}
+}
+		</script>
+		<!-- CSS Style -->
+		<style>
+		h2 {
+			color: #39E600; <!-- hex color for shade of green -->
+			font-size: 24px;
+			text-shadow: 1px 1px #ffffff; <!-- text shadow with hex color for white -->
+			}
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #FFCCFF; <!-- hex color for shade of pink -->
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 700px; margin: auto; margin-top: 100px; border: 1px solid black; 
+		padding: 5px; background-color: gray;">
+			<h2>Guessing Game</h2>
+			<br>
+			<p>This is a guessing game. The computer selects a number between 1 and 10. 
+			The player must guess the number in a specified number of attempts. The player
+			can pick how many guesses he or she wants. Play ends when either the player 
+			guesses correctly or uses up all the guesses allowed.</p>
+		<p>Begin the process by clicking the 'BEGIN' button below.</p>
+		<br /> <hr /><br /> <!-- creates horizontal line -->
+	<!-- creates button for user to click -->
+	<input type="button" onclick="guesslt()" value="<<BEGIN>>">
+	<div id="guessResult"> &nbsp;</div>
+		</div>
+	</body>
+</html>
+
+
+
+
+
